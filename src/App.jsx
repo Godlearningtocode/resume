@@ -267,7 +267,47 @@ function App() {
     );
   }
 
-  function AddExperienceComponent() {}
+  function AddExperienceComponent() {
+    const [companyName, setCompanyName] = useState("");
+    const [ positionTitle, setPositionTitle] = useState("");
+    const [startDate, setStartDate] = useState("");
+    const [endDate, setEndDate] = useState("");
+    const [companyLocation, setCompanyLocation] = useState("");
+    const [description, setDescription] = useState("");
+
+    return (
+      <div id="experienceInput">
+        <form action="" id="experienceForm">
+          <div id="companyInput">
+            <label htmlFor="companyName">Company Name:</label>
+            <input type="text" name="compnayName" id="compnayName" placeholder="Enter Company Name" value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
+          </div>
+          <div id="positionInput">
+            <label htmlFor="position">Position Title:</label>
+            <input type="text" name="positon" id="position" placeholder="Enter Position Title" value={positionTitle} onChange={(e) => setPositionTitle(e.target.value)} />
+          </div>
+          <div id="timeInputEx">
+            <div id="timeLeftSide">
+              <label htmlFor="startDate">Start Date:</label>
+              <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+            </div>
+            <div id="timeRightSide">
+              <label htmlFor="endDate">End Date:</label>
+              <input type="text" name="endDate" id="endDate" placeholder="Enter End Date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+            </div>
+          </div>
+          <div id="locationInput">
+            <label htmlFor="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter Location" value={companyLocation} onChange={(e) => setCompanyLocation(e.target.values)} />
+          </div>
+          <div id="description">
+            <label htmlFor="description">Description: </label>
+            <input type="text" name="description" id="description" placeholder="Enter Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+          </div>
+        </form>
+      </div>
+    )
+  }
 }
 
 export default App;
