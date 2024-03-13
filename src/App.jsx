@@ -10,6 +10,22 @@ function App() {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
+  const resumeDetailsArray = [];
+  let personalDetailsInfo;
+  const [educationDetailsArray, setEducationDetailsArray] = useState([]);
+  const [experienceDetailsArray, setExperienceDetailsArray] = useState([])
+
+  function StorePersonalDetails() {
+    let info = {
+      fullName: fullName,
+      email: email,
+      phoneNumber: phoneNumber,
+      address: address
+    }
+
+    personalDetailsInfo = info
+    console.log(personalDetailsInfo)
+  }
 
   return (
     <>
@@ -64,6 +80,8 @@ function App() {
                     <input
                       id="phoneNumber"
                       type="tel"
+                      pattern="[0-9]{10}"
+                      maxLength={10}
                       required
                       name="phoneNumber"
                       value={phoneNumber}
@@ -85,6 +103,12 @@ function App() {
                     />
                   </div>
                 </form>
+                <div className="cancelSaveContainer">
+                  <button className="cancelButton" >
+                    Cancel
+                  </button>
+                  <button className="saveButton" onClick={StorePersonalDetails}>Save</button>
+                </div>
               </div>
               <div id="educationInput">
                 <button className="expandButton" onClick={ChangeState}>
@@ -190,6 +214,10 @@ function App() {
       setEducationInfo(info);
     }, [school, degree, startDate, endDate, educationLocation]);
 
+    function StoreEducationInfo() {
+      setEducationDetailsArray(educationDetailsArray => [...educationDetailsArray, educationInfo])
+    }
+
     return (
       <div id="educationInput">
         <form id="educationForm">
@@ -259,7 +287,7 @@ function App() {
             <button className="cancelButton" onClick={ChangeEducationState}>
               Cancel
             </button>
-            <button className="saveButton">Save</button>
+            <button className="saveButton" onClick={StoreEducationInfo}>Save</button>
           </div>
         </div>
       </div>
@@ -295,8 +323,9 @@ function App() {
       description,
     ]);
 
-    function Aaa() {
-      console.log(experienceInfo);
+    function StoreExperienceInfo() {
+      setExperienceDetailsArray(experienceDetailsArray => [...experienceDetailsArray, experienceInfo])
+      ChangeExperienceState()
     }
 
     return (
@@ -379,7 +408,7 @@ function App() {
             <button className="cancelButton" onClick={ChangeExperienceState}>
               Cancel
             </button>
-            <button className="saveButton" onClick={console.log(experienceInfo)}>
+            <button className="saveButton" onClick={StoreExperienceInfo}>
               Save
             </button>
           </div>
