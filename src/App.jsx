@@ -13,18 +13,18 @@ function App() {
   const resumeDetailsArray = [];
   let personalDetailsInfo;
   const [educationDetailsArray, setEducationDetailsArray] = useState([]);
-  const [experienceDetailsArray, setExperienceDetailsArray] = useState([])
+  const [experienceDetailsArray, setExperienceDetailsArray] = useState([]);
 
   function StorePersonalDetails() {
     let info = {
       fullName: fullName,
       email: email,
       phoneNumber: phoneNumber,
-      address: address
-    }
+      address: address,
+    };
 
-    personalDetailsInfo = info
-    console.log(personalDetailsInfo)
+    personalDetailsInfo = info;
+    console.log(personalDetailsInfo);
   }
 
   return (
@@ -104,10 +104,10 @@ function App() {
                   </div>
                 </form>
                 <div className="cancelSaveContainer">
-                  <button className="cancelButton" >
-                    Cancel
+                  <button className="cancelButton">Cancel</button>
+                  <button className="saveButton" onClick={StorePersonalDetails}>
+                    Save
                   </button>
-                  <button className="saveButton" onClick={StorePersonalDetails}>Save</button>
                 </div>
               </div>
               <div id="educationInput">
@@ -121,15 +121,22 @@ function App() {
                     height={50 + "px"}
                   />
                 </button>
-                {expandEducationSection ? (
-                  <button
-                    id="addEducationButton"
-                    onClick={ChangeEducationState}
-                  >
-                    + Education
-                  </button>
-                ) : (
-                  ""
+                {expandEducationSection && (
+                  <div>
+                    <div>
+                      {educationDetailsArray.map((element, i) => (
+                        <div key={i} className={"displayEducation"}>
+                          {element.school}
+                        </div>
+                      ))}
+                    </div>
+                    <button
+                      id="addEducationButton"
+                      onClick={ChangeEducationState}
+                    >
+                      + Education
+                    </button>
+                  </div>
                 )}
                 {expandEducationSection && addEducation ? (
                   <AddEducationComponent />
@@ -148,15 +155,20 @@ function App() {
                     height={50 + "px"}
                   />
                 </button>
-                {expandExperienceSection ? (
-                  <button
-                    id="addExperienceButton"
-                    onClick={ChangeExperienceState}
-                  >
-                    + Experience
-                  </button>
-                ) : (
-                  ""
+                {expandExperienceSection && (
+                  <div>
+                    <div>
+                      {experienceDetailsArray.map((element, i) => (
+                        <div key={"experience" + i} className="displayExperience">{element.companyname}</div>
+                      ))}
+                    </div>
+                    <button
+                      id="addExperienceButton"
+                      onClick={ChangeExperienceState}
+                    >
+                      + Experience
+                    </button>
+                  </div>
                 )}
                 {expandExperienceSection && addExperience ? (
                   <AddExperienceComponent />
@@ -215,7 +227,11 @@ function App() {
     }, [school, degree, startDate, endDate, educationLocation]);
 
     function StoreEducationInfo() {
-      setEducationDetailsArray(educationDetailsArray => [...educationDetailsArray, educationInfo])
+      setEducationDetailsArray((educationDetailsArray) => [
+        ...educationDetailsArray,
+        educationInfo,
+      ]);
+      ChangeEducationState();
     }
 
     return (
@@ -287,7 +303,9 @@ function App() {
             <button className="cancelButton" onClick={ChangeEducationState}>
               Cancel
             </button>
-            <button className="saveButton" onClick={StoreEducationInfo}>Save</button>
+            <button className="saveButton" onClick={StoreEducationInfo}>
+              Save
+            </button>
           </div>
         </div>
       </div>
@@ -324,8 +342,11 @@ function App() {
     ]);
 
     function StoreExperienceInfo() {
-      setExperienceDetailsArray(experienceDetailsArray => [...experienceDetailsArray, experienceInfo])
-      ChangeExperienceState()
+      setExperienceDetailsArray((experienceDetailsArray) => [
+        ...experienceDetailsArray,
+        experienceInfo,
+      ]);
+      ChangeExperienceState();
     }
 
     return (
