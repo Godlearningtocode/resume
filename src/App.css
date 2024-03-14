@@ -34,21 +34,29 @@ width: 100%;
   flex-direction: column;
   background-color: #E6E7E8;
   border-radius: 15px;
-  padding: 20px;
-  height: 112.5px;
+  gap: 15px;
+  font-weight: bolder;
+  padding: 10px;
+  height: 138px;
+}
+
+.activeSection {
+  background-color: #D3E0EA;
+  border-radius: 5px;
 }
 
 .navButtonImage {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
 }
 
 .navButtonContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
+  padding: 5px;
 }
 
 #inputSection {
@@ -68,9 +76,8 @@ width: 100%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 25px;
   background-color: #E6E7E8;
-  padding: 20px;
+  padding: 10px;
   border-radius: 15px;
 }
 
@@ -92,11 +99,12 @@ width: 100%;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  width: 100%;
 }
 
 .displayButton {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
 }
 
 #personalInput {
@@ -259,6 +267,17 @@ button:focus, button:focus-visible {
   flex-direction: column;
 }
 
-/* #startDateEducation, #startDateExperience { */
-  /* width: 200px; */
-/* } */
+#clearResumeContainer {
+  color: #F44336;
+  font-weight: bolder;
+  padding: 5px;
+  font-size: 0.9rem;
+}
+
+#loadResumeContainer{
+  font-weight: bolder;
+  background-color: #D3E0EA;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.9rem;
+}

@@ -7,39 +7,53 @@ import "./App.css";
 function App() {
   const [resumeDetails, setResumeDetails] = useState([]);
 
+  function CustomPageRender() {
+    if(document.querySelector('.activeSection')) {
+      document.querySelector('.activeSection').classList.remove('activeSection');
+      document.querySelector('#customizeSection').classList.add('activeSection')
+    }
+  }
+
+  function ContentPageRender() {
+    if(document.querySelector('.activeSection')) {
+      document.querySelector('.activeSection').classList.remove('activeSection');
+      document.querySelector('#contentSection').classList.add('activeSection')
+    }
+  }
+
   return (
     <>
       <div id="mainSection">
         <div id="leftSide">
           <div id="customSection">
-            <div className="navButtonContainer">
+            <div className="activeSection navButtonContainer" id="contentSection" onClick={ContentPageRender}>
               <img
                 src="src/assets/contentBlack.png"
                 alt="Content Page"
                 className="navButtonImage"
               />
-              <p id="contentText">Content</p>
+              <div id="contentText">Content</div>
             </div>
-            <div className="navButtonContainer">
+            <div className="navButtonContainer" id="customizeSection" onClick={CustomPageRender}>
               <img
                 src="src/assets/custom.png"
                 alt="Customize"
                 className="navButtonImage"
               />
-              <p id="customizeText">Customize</p>
+              <div id="customizeText">Customize</div>
             </div>
           </div>
           <div id="inputSection">
             <div id="displayInputButtons">
-              <div className="displayInputContainer">
+              <div className="displayInputContainer" id="clearResumeContainer">
                 <img
                   src="src/assets/trash.png"
                   alt=""
                   className="displayButton"
                 />
-                <div id="cleanResume">Clear Resume</div>
+                <div id="clearResume">Clear Resume</div>
               </div>
-              <div className="displayInputContainer">
+              <div className="displayInputContainer" id="loadResumeContainer">
                 <img
                   src="src/assets/display.png"
                   alt=""
