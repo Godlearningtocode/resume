@@ -7,11 +7,11 @@ width: 100%;
 
 #root {
   margin: 0 auto;
-  color: black;
+  color: #0A192F;
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  background-color: black;
+  background-color: #0A192F;
 }
 
 #mainSection {
@@ -32,7 +32,7 @@ width: 100%;
 #customSection {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #E6E7E8;
   border-radius: 15px;
   padding: 20px;
   height: 112.5px;
@@ -65,7 +65,7 @@ width: 100%;
   justify-content: center;
   align-items: center;
   gap: 25px;
-  background-color: white;
+  background-color: #E6E7E8;
   padding: 20px;
   border-radius: 15px;
 }
@@ -96,7 +96,10 @@ width: 100%;
 }
 
 #personalInput {
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #E6E7E8;
   padding: 20px;
   border-radius: 15px;
 }
@@ -110,7 +113,6 @@ width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 15px;
 }
 
 .personalInfoContainer {
@@ -123,22 +125,32 @@ width: 100%;
 
 input {
   box-sizing: border-box;
-  padding: 8px;
+  padding: 5px 10px;
   width: 100%;
   border: 1px;
-  border-radius: 8px;
-  background-color: antiquewhite;
+  border-radius: 10px;
+  background-color: #D3E0EA;
 }
 
-.deleteButtonContainer {
-  margin-top: 15px;
+input:focus {
+  border-color: #0A192F;
+}
+
+label {
+  font-weight: bold;
+}
+
+.editButton {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .deleteButton {
   width: 100%;
   text-align: center;
   color: white;
-  background-color: #ED0800;
+  background-color: #F44336;
   border: 1px solid #414a4c;
   cursor: pointer;
   border-radius: 5px;
@@ -150,7 +162,6 @@ input {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-top: 15px;
 }
 
 .cancelButton {
@@ -159,7 +170,7 @@ input {
   border: 1px solid #414a4c;
   cursor: pointer;
   border-radius: 5px;
-  background-color: #ED0800;
+  background-color: #9E9E9E;
   color: white
 }
 
@@ -168,9 +179,15 @@ input {
   text-align: center;
   color: white;
   cursor: pointer;
-  background-color: #187ff5;
+  background-color: #4CAF50;
   border: 1px solid #414a4c;
   border-radius: 5px;
+}
+
+#educationInput {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 #educationInputSection, #experienceInputSection  {
@@ -187,6 +204,7 @@ input {
   justify-content: space-between;
   align-items: center;
   border: none;
+  background-color: #E6E7E8;
 }
 
 button:focus, button:focus-visible {
@@ -212,11 +230,16 @@ button:focus, button:focus-visible {
 }
 
 #addEducationButton, #addExperienceButton {
-  border: 1px solid gray
+  border: 3px solid #0A192F;
+  width: 200px;
+  border-radius: 50px;
+  background-color: #E6E7E8;
 }
 
 .inputContainer {
   display: flex;
   flex-direction: column;
   padding: 15px;
+  border-radius: 15px;
+  background-color: #E6E7E8;
 }
