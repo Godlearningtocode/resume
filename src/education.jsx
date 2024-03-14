@@ -15,6 +15,8 @@ export default function AppendEducationComponent() {
     expandEducationSection
       ? setExpandEducationSection(false)
       : setExpandEducationSection(true);
+
+    document.querySelector(".expandImage").classList.toggle("active");
   }
 
   function ChangeEducationState() {
@@ -44,32 +46,33 @@ export default function AppendEducationComponent() {
   return (
     <div>
       <div id="educationInputSection">
-        <button className="expandButton" onClick={ChangeState}>
-          <h2>Education</h2>
-          <img
-            src="src/assets/down-arrow.png"
-            alt=""
-            className="expandImage"
-            width={50 + "px"}
-            height={50 + "px"}
-          />
-        </button>
-        {expandEducationSection && (
-          <div>
-            <div>
-              {educationDetailsArray.map((element, i) => (
-                <div key={i} className={"displayEducation"}>
-                  {element.school}
-                </div>
-              ))}
+        <div className="inputContainer">
+          <button className="expandButton" onClick={ChangeState}>
+            <div className="heading">Education</div>
+            <img
+              src="src/assets/down-arrow.png"
+              alt=""
+              className="expandImage"
+              width={50 + "px"}
+              height={50 + "px"}
+            />
+          </button>
+          {expandEducationSection && (
+            <div className="addSectionContainer">
+              <div>
+                {educationDetailsArray.map((element, i) => (
+                  <div key={i} className={"displayEducation"}>
+                    {element.school}
+                  </div>
+                ))}
+              </div>
+              <button id="addEducationButton" onClick={ChangeEducationState}>
+                + Education
+              </button>
             </div>
-            <button id="addEducationButton" onClick={ChangeEducationState}>
-              + Education
-            </button>
-          </div>
-        )}
-        {expandEducationSection && (addEducation && 
-              <div id="educationInput">
+          )}
+          {expandEducationSection && addEducation && (
+            <div id="educationInput">
               <form id="educationForm">
                 <div id="schoolInput">
                   <label htmlFor="school">School:</label>
@@ -131,10 +134,13 @@ export default function AppendEducationComponent() {
               </form>
               <div className="editButton">
                 <div className="deleteButtonContainer">
-                  <button className="deletebutton">Delete</button>
+                  <button className="deleteButton">Delete</button>
                 </div>
                 <div className="cancelSaveContainer">
-                  <button className="cancelButton" onClick={ChangeEducationState}>
+                  <button
+                    className="cancelButton"
+                    onClick={ChangeEducationState}
+                  >
                     Cancel
                   </button>
                   <button className="saveButton" onClick={StoreEducationInfo}>
@@ -142,8 +148,9 @@ export default function AppendEducationComponent() {
                   </button>
                 </div>
               </div>
-            </div>    
-        )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

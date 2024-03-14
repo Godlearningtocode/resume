@@ -7,17 +7,19 @@ width: 100%;
 
 #root {
   margin: 0 auto;
-  padding: 2rem;
   color: black;
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
+  box-sizing: border-box;
   background-color: black;
 }
 
 #mainSection {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  box-sizing: border-box;
+  padding: 25px;
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -28,9 +30,12 @@ width: 100%;
 }
 
 #customSection {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: 15px;
   padding: 20px;
+  height: 112.5px;
 }
 
 .navButtonImage {
@@ -50,6 +55,8 @@ width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  min-width: 400px;
+  height: auto;
 }
 
 #displayInputButtons {
@@ -61,6 +68,18 @@ width: 100%;
   background-color: white;
   padding: 20px;
   border-radius: 15px;
+}
+
+#inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#inputContainer > div {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .displayInputContainer {
@@ -82,10 +101,16 @@ width: 100%;
   border-radius: 15px;
 }
 
-#personalForm {
+.heading {
+  font-size:1.3rem;
+  font-weight: bolder;
+}
+
+#personalForm, #educationForm, #experienceForm {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top: 15px;
 }
 
 .personalInfoContainer {
@@ -94,4 +119,104 @@ width: 100%;
   gap: 5px;
   justify-content: center;
   align-items: flex-start;
+}
+
+input {
+  box-sizing: border-box;
+  padding: 8px;
+  width: 100%;
+  border: 1px;
+  border-radius: 8px;
+  background-color: antiquewhite;
+}
+
+.deleteButtonContainer {
+  margin-top: 15px;
+}
+
+.deleteButton {
+  width: 100%;
+  text-align: center;
+  color: white;
+  background-color: #ED0800;
+  border: 1px solid #414a4c;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cancelSaveContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.cancelButton {
+  text-align: center;
+  width: 100%;
+  border: 1px solid #414a4c;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #ED0800;
+  color: white
+}
+
+.saveButton {
+  width: 100%;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  background-color: #187ff5;
+  border: 1px solid #414a4c;
+  border-radius: 5px;
+}
+
+#educationInputSection, #experienceInputSection  {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.expandButton {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+}
+
+button:focus, button:focus-visible {
+  outline: none !important;
+}
+
+.expandImage {
+  width: 15px;
+  height: 15px;
+  transition: ease-in-out 0.2s;
+}
+
+.active {
+  transform: rotate(180deg);
+}
+
+.addSectionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#addEducationButton, #addExperienceButton {
+  border: 1px solid gray
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
 }

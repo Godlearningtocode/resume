@@ -21,7 +21,7 @@ export default function AppendPersonalComponent() {
 
     return (
         <div id="personalInput">
-                <h2>Personal Details</h2>
+                <div className="heading">Personal Details</div>
                 <form id="personalForm">
                   <div className="personalInfoContainer">
                     <label htmlFor="fullName">Full Name:</label>

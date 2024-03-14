@@ -53,120 +53,122 @@ export default function AppendExperienceComponent() {
   return (
     <div>
       <div id="experienceInputSection">
-        <button className="expandButton" onClick={DisplayAddExperience}>
-          <h2>Experience</h2>
-          <img
-            src="src/assets/down-arrow.png"
-            alt="downward arrow"
-            className="expandImage"
-            width={50 + "px"}
-            height={50 + "px"}
-          />
-        </button>
-        {expandExperienceSection && (
-          <div>
-            <div>
-              {experienceDetailsArray.map((element, i) => (
-                <div key={"experience" + i} className="displayExperience">
-                  {element.companyname}
-                </div>
-              ))}
+        <div className="inputContainer">
+          <button className="expandButton" onClick={DisplayAddExperience}>
+            <div className="heading">Experience</div>
+            <img
+              src="src/assets/down-arrow.png"
+              alt="downward arrow"
+              className="expandImage"
+              width={50 + "px"}
+              height={50 + "px"}
+            />
+          </button>
+          {expandExperienceSection && (
+            <div className="addSectionContainer">
+              <div>
+                {experienceDetailsArray.map((element, i) => (
+                  <div key={"experience" + i} className="displayExperience">
+                    {element.companyname}
+                  </div>
+                ))}
+              </div>
+              <button id="addExperienceButton" onClick={ChangeExperienceState}>
+                + Experience
+              </button>
             </div>
-            <button id="addExperienceButton" onClick={ChangeExperienceState}>
-              + Experience
-            </button>
-          </div>
-        )}
-        {expandExperienceSection && addExperience && (
-          <div id="experienceInput">
-            <form action="" id="experienceForm">
-              <div id="companyInput">
-                <label htmlFor="companyName">Company Name:</label>
-                <input
-                  type="text"
-                  name="companyName"
-                  id="companyName"
-                  placeholder="Enter Company Name"
-                  value={companyName}
-                  onChange={(e) => setCompanyName(e.target.value)}
-                />
-              </div>
-              <div id="positionInput">
-                <label htmlFor="position">Position Title:</label>
-                <input
-                  type="text"
-                  name="positon"
-                  id="position"
-                  placeholder="Enter Position Title"
-                  value={positionTitle}
-                  onChange={(e) => setPositionTitle(e.target.value)}
-                />
-              </div>
-              <div id="timeInputEx">
-                <div id="timeLeftSide">
-                  <label htmlFor="startDate">Start Date:</label>
+          )}
+          {expandExperienceSection && addExperience && (
+            <div id="experienceInput">
+              <form action="" id="experienceForm">
+                <div id="companyInput">
+                  <label htmlFor="companyName">Company Name:</label>
                   <input
                     type="text"
-                    name="startDate"
-                    id="startDate"
-                    placeholder="Enter Start Date"
-                    value={startDate}
-                    onChange={(e) => setStartDate(e.target.value)}
+                    name="companyName"
+                    id="companyName"
+                    placeholder="Enter Company Name"
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
                   />
                 </div>
-                <div id="timeRightSide">
-                  <label htmlFor="endDate">End Date:</label>
+                <div id="positionInput">
+                  <label htmlFor="position">Position Title:</label>
                   <input
                     type="text"
-                    name="endDate"
-                    id="endDate"
-                    placeholder="Enter End Date"
-                    value={endDate}
-                    onChange={(e) => setEndDate(e.target.value)}
+                    name="positon"
+                    id="position"
+                    placeholder="Enter Position Title"
+                    value={positionTitle}
+                    onChange={(e) => setPositionTitle(e.target.value)}
                   />
                 </div>
-              </div>
-              <div id="locationInput">
-                <label htmlFor="location">Location:</label>
-                <input
-                  type="text"
-                  id="location"
-                  name="location"
-                  placeholder="Enter Location"
-                  value={companyLocation}
-                  onChange={(e) => setCompanyLocation(e.target.value)}
-                />
-              </div>
-              <div id="description">
-                <label htmlFor="experienceDescription">Description: </label>
-                <input
-                  type="text"
-                  id="experienceDescription"
-                  name="experienceDescription"
-                  placeholder="Enter Description"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                />
-              </div>
-            </form>
-            <div className="editButton">
-              <div className="deleteButtonContainer">
-                <button className="deleteButton">Delete</button>
-              </div>
-              <div className="cancelSaveContainer">
-                <button
-                  className="cancelButton"
-                  onClick={ChangeExperienceState}
-                >
-                  Cancel
-                </button>
-                <button className="saveButton" onClick={StoreExperienceInfo}>
-                  Save
-                </button>
+                <div id="timeInputEx">
+                  <div id="timeLeftSide">
+                    <label htmlFor="startDate">Start Date:</label>
+                    <input
+                      type="text"
+                      name="startDate"
+                      id="startDate"
+                      placeholder="Enter Start Date"
+                      value={startDate}
+                      onChange={(e) => setStartDate(e.target.value)}
+                    />
+                  </div>
+                  <div id="timeRightSide">
+                    <label htmlFor="endDate">End Date:</label>
+                    <input
+                      type="text"
+                      name="endDate"
+                      id="endDate"
+                      placeholder="Enter End Date"
+                      value={endDate}
+                      onChange={(e) => setEndDate(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div id="locationInput">
+                  <label htmlFor="location">Location:</label>
+                  <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Enter Location"
+                    value={companyLocation}
+                    onChange={(e) => setCompanyLocation(e.target.value)}
+                  />
+                </div>
+                <div id="description">
+                  <label htmlFor="experienceDescription">Description: </label>
+                  <input
+                    type="text"
+                    id="experienceDescription"
+                    name="experienceDescription"
+                    placeholder="Enter Description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
+                </div>
+              </form>
+              <div className="editButton">
+                <div className="deleteButtonContainer">
+                  <button className="deleteButton">Delete</button>
+                </div>
+                <div className="cancelSaveContainer">
+                  <button
+                    className="cancelButton"
+                    onClick={ChangeExperienceState}
+                  >
+                    Cancel
+                  </button>
+                  <button className="saveButton" onClick={StoreExperienceInfo}>
+                    Save
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
