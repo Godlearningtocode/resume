@@ -17,10 +17,22 @@ export default function AppendEducationComponent() {
       : setExpandEducationSection(true);
 
     document.querySelector(".expandImage").classList.toggle("active");
+
+    if(expandEducationSection == false) {
+      setAddEducation(false)
+    }
   }
 
   function ChangeEducationState() {
     addEducation ? setAddEducation(false) : setAddEducation(true);
+  }
+
+  function InputReset() {
+    setSchool("");
+    setdegree("");
+    setStartDate("");
+    setEndDate("");
+    setEducationLocation("")
   }
 
   useEffect(() => {
@@ -96,24 +108,24 @@ export default function AppendEducationComponent() {
                     placeholder="Enter Degree or field of study"
                   />
                 </div>
-                <div id="timeinput">
-                  <div id="timeLeftSide">
-                    <label htmlFor="startDate">Start Date:</label>
+                <div className="timeInput">
+                  <div className="timeLeftSide">
+                    <label htmlFor="startDateEducation">Start Date:</label>
                     <input
-                      id="startDate"
+                      id="startDateEducation"
                       type="text"
-                      name="startDate"
+                      name="startDateEducation"
                       value={startDate}
                       onChange={(e) => setStartDate(e.target.value)}
                       placeholder="Enter Start Date"
                     />
                   </div>
-                  <div id="timeRightSide">
-                    <label htmlFor="endDate">End State:</label>
+                  <div className="timeRightSide">
+                    <label htmlFor="endDateEducation">End State:</label>
                     <input
-                      id="endDate"
+                      id="endDateEducation"
                       type="text"
-                      name="endDate"
+                      name="endDateEducation"
                       value={endDate}
                       onChange={(e) => setEndDate(e.target.value)}
                       placeholder="Enter End Date"
@@ -134,7 +146,7 @@ export default function AppendEducationComponent() {
               </form>
               <div className="editButton">
                 <div className="deleteButtonContainer">
-                  <button className="deleteButton">Delete</button>
+                  <button className="deleteButton" onClick={InputReset}>Delete</button>
                 </div>
                 <div className="cancelSaveContainer">
                   <button

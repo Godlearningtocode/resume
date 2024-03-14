@@ -16,10 +16,25 @@ export default function AppendExperienceComponent() {
     expandExperienceSection
       ? setExpandExperienceSection(false)
       : setExpandExperienceSection(true);
+
+      document.querySelector(".experienceExpandImage").classList.toggle("active");
+
+    if(expandExperienceSection == false) {
+      setAddExperience(false)
+    }
   }
 
   function ChangeExperienceState() {
     addExperience ? setAddExperience(false) : setAddExperience(true);
+  }
+
+  function InputReset() {
+    setCompanyName("");
+    setPositionTitle("");
+    setStartDate("");
+    setEndDate("");
+    setCompanyLocation("");
+    setDescription("")
   }
 
   useEffect(() => {
@@ -59,7 +74,7 @@ export default function AppendExperienceComponent() {
             <img
               src="src/assets/down-arrow.png"
               alt="downward arrow"
-              className="expandImage"
+              className="expandImage experienceExpandImage"
               width={50 + "px"}
               height={50 + "px"}
             />
@@ -103,24 +118,24 @@ export default function AppendExperienceComponent() {
                     onChange={(e) => setPositionTitle(e.target.value)}
                   />
                 </div>
-                <div id="timeInputEx">
-                  <div id="timeLeftSide">
-                    <label htmlFor="startDate">Start Date:</label>
+                <div className="timeInput">
+                  <div className="timeLeftSide">
+                    <label htmlFor="startDateExperience">Start Date:</label>
                     <input
                       type="text"
-                      name="startDate"
-                      id="startDate"
+                      name="startDateExperience"
+                      id="startDateExperience"
                       placeholder="Enter Start Date"
                       value={startDate}
                       onChange={(e) => setStartDate(e.target.value)}
                     />
                   </div>
-                  <div id="timeRightSide">
-                    <label htmlFor="endDate">End Date:</label>
+                  <div className="timeRightSide">
+                    <label htmlFor="endDateExperience">End Date:</label>
                     <input
                       type="text"
-                      name="endDate"
-                      id="endDate"
+                      name="endDateExperience"
+                      id="endDateExperience"
                       placeholder="Enter End Date"
                       value={endDate}
                       onChange={(e) => setEndDate(e.target.value)}
@@ -152,7 +167,7 @@ export default function AppendExperienceComponent() {
               </form>
               <div className="editButton">
                 <div className="deleteButtonContainer">
-                  <button className="deleteButton">Delete</button>
+                  <button className="deleteButton" onClick={InputReset}>Delete</button>
                 </div>
                 <div className="cancelSaveContainer">
                   <button

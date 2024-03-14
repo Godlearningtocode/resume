@@ -55,8 +55,12 @@ width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  min-width: 400px;
+  min-width: 420px;
   height: auto;
+}
+
+#inputSection > div {
+  max-width: 420px;
 }
 
 #displayInputButtons {
@@ -184,7 +188,7 @@ label {
   border-radius: 5px;
 }
 
-#educationInput {
+#educationInput, #experienceInput {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -243,3 +247,18 @@ button:focus, button:focus-visible {
   border-radius: 15px;
   background-color: #E6E7E8;
 }
+
+.timeInput {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.timeLeftSide, .timeRightSide {
+  display: flex;
+  flex-direction: column;
+}
+
+/* #startDateEducation, #startDateExperience { */
+  /* width: 200px; */
+/* } */
