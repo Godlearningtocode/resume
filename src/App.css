@@ -142,7 +142,7 @@ input {
   width: 100%;
   border: 1px;
   border-radius: 10px;
-  background-color: #D3E0EA;
+  background-color: #D3E0EA !important;
 }
 
 input:focus {
@@ -304,7 +304,6 @@ button:focus, button:focus-visible {
   flex-direction: row;
   gap: 25px;
   width: 100%;
-  height: 100%;
 }
 
 #displaySection {
@@ -315,7 +314,71 @@ button:focus, button:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 100%;
-  height: 100%;
   background-color: white;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#personalDetailsSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+  gap: 5px;
+  background-color: rgba(220, 174, 150, 0.5);
+  padding: 25px 40px;
+}
+
+.topSection {
+  font-weight: bolder;
+  font-size: 2rem;
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.bottomSection > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#educationDetailsSection, #experienceDetailsSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 40px;
+  width: 100vh;
+}
+
+#educationHeading, #experienceHeading {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  width: 100vh;
+  text-align: center;
+  padding: 5px 0px;
+  background-color: #e8f0fe;
+}
+
+#educationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.educationCard, .experienceCard {
+  display: flex;
+  flex-direction: row;
+  width: 100vh;
+  gap: 35px;
+  padding-top: 10px;
+}
+
+.educationSchool, .experienceCompanyName {
+  font-weight: bolder;
 }

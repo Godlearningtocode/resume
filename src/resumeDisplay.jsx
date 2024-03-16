@@ -67,11 +67,11 @@ export default function DisplayResume({
                   </div>
                 </div>
                 <div className="experienceCardRight">
-                  <div className="educationCompany">{element.companyName}</div>
-                  <div className="educationPositionTitle">
+                  <div className="experienceCompanyName">{element.companyName}</div>
+                  <div className="experiencePositionTitle">
                     {element.positionTitle}
                   </div>
-                  <div className="educationDescription">
+                  <div className="experienceDescription">
                     {element.description}
                   </div>
                 </div>

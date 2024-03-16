@@ -88,7 +88,7 @@ export default function AppendExperienceComponent({
               <div id="displayExpreienceContainer">
                 {experienceDetailsInfo.map((element, i) => (
                   <div key={"experience" + i} className="displayExperience">
-                    {element.companyname}
+                    {element.companyName}
                   </div>
                 ))}
               </div>
