@@ -81,7 +81,7 @@ export default function AppendExperienceComponent() {
           </button>
           {expandExperienceSection && (
             <div className="addSectionContainer">
-              <div>
+              <div id="displayExpreienceContainer">
                 {experienceDetailsArray.map((element, i) => (
                   <div key={"experience" + i} className="displayExperience">
                     {element.companyname}

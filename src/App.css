@@ -239,7 +239,23 @@ button:focus, button:focus-visible {
   justify-content: center;
   align-items: center;
   padding: 10px;
+  gap: 15px;
 }
+
+#displayEducationContainer, #displayExpreienceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.displayEducation, .displayExperience {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  font-weight: bolder;
+} 
 
 #addEducationButton, #addExperienceButton {
   border: 3px solid #0A192F;

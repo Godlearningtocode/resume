@@ -71,7 +71,7 @@ export default function AppendEducationComponent() {
           </button>
           {expandEducationSection && (
             <div className="addSectionContainer">
-              <div>
+              <div  id="displayEducationContainer">
                 {educationDetailsArray.map((element, i) => (
                   <div key={i} className={"displayEducation"}>
                     {element.school}
