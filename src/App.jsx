@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import AppendEducationComponent from "./education";
 import AppendExperienceComponent from "./experience";
 import AppendPersonalComponent from "./personal";
+import DisplayResume from "./resumeDisplay";
 import "./App.css";
 
 function App() {
-  const [resumeDetails, setResumeDetails] = useState([]);
+  const [personalDetailsInfo, setPersonalDetailsInfo] = useState([]);
+  const [educationDetailsInfo, setEducationDetailsInfo] = useState([]);
+  const [experienceDetailsInfo, setExperienceDetailsInfo] = useState([]);
 
   function CustomPageRender() {
     if(document.querySelector('.activeSection')) {
@@ -63,14 +66,16 @@ function App() {
               </div>
             </div>
             <div id="inputContainer">
-              <AppendPersonalComponent />
-              <AppendEducationComponent />
-              <AppendExperienceComponent />
+              <AppendPersonalComponent personalDetailsInfo={personalDetailsInfo} setPersonalDetailsInfo={setPersonalDetailsInfo}/>
+              <AppendEducationComponent educationDetailsInfo={educationDetailsInfo} setEducationDetailsInfo={setEducationDetailsInfo} />
+              <AppendExperienceComponent experienceDetailsInfo={experienceDetailsInfo} setExperienceDetailsInfo={setExperienceDetailsInfo} />
             </div>
           </div>
         </div>
         <div id="rightSide">
-          <div id="displaySection"></div>
+          <div id="displaySection">
+            <DisplayResume personalDetailsInfo={personalDetailsInfo} educationDetailsInfo={educationDetailsInfo} experienceDetailsInfo={experienceDetailsInfo} />
+          </div>
         </div>
       </div>
     </>

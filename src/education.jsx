@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function AppendEducationComponent() {
+export default function AppendEducationComponent({educationDetailsInfo, setEducationDetailsInfo}) {
   const [expandEducationSection, setExpandEducationSection] = useState(false);
   const [addEducation, setAddEducation] = useState(false);
   const [school, setSchool] = useState("");
@@ -48,11 +48,9 @@ export default function AppendEducationComponent() {
   }, [school, degree, startDate, endDate, educationLocation]);
 
   function StoreEducationInfo() {
-    setEducationDetailsArray((educationDetailsArray) => [
-      ...educationDetailsArray,
-      educationInfo,
-    ]);
+    setEducationDetailsInfo((educationDetailsInfo) => [...educationDetailsInfo, educationInfo])
     ChangeEducationState();
+    InputReset();
   }
 
   return (
@@ -72,7 +70,7 @@ export default function AppendEducationComponent() {
           {expandEducationSection && (
             <div className="addSectionContainer">
               <div  id="displayEducationContainer">
-                {educationDetailsArray.map((element, i) => (
+                {educationDetailsInfo.map((element, i) => (
                   <div key={i} className={"displayEducation"}>
                     {element.school}
                   </div>

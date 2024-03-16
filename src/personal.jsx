@@ -1,23 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function AppendPersonalComponent() {
+export default function AppendPersonalComponent({personalDetailsInfo, setPersonalDetailsInfo}) {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [address, setAddress] = useState("");
-    let personalDetailsInfo;
     
     function StorePersonalDetails() {
-        let info = {
-          fullName: fullName,
-          email: email,
-          phoneNumber: phoneNumber,
-          address: address,
-        };
-    
-        personalDetailsInfo = info;
-        console.log(personalDetailsInfo);
-      }
+      let info = {
+        fullName: fullName,
+        email: email,
+        phoneNumber: phoneNumber,
+        address: address,
+      };
+  
+      setPersonalDetailsInfo(info);
+    }
 
     return (
         <div id="personalInput">

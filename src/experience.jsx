@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 
-export default function AppendExperienceComponent() {
+export default function AppendExperienceComponent({
+  experienceDetailsInfo,
+  setExperienceDetailsInfo,
+}) {
   const [expandExperienceSection, setExpandExperienceSection] = useState(false);
   const [addExperience, setAddExperience] = useState(false);
   const [experienceDetailsArray, setExperienceDetailsArray] = useState([]);
@@ -17,10 +20,10 @@ export default function AppendExperienceComponent() {
       ? setExpandExperienceSection(false)
       : setExpandExperienceSection(true);
 
-      document.querySelector(".experienceExpandImage").classList.toggle("active");
+    document.querySelector(".experienceExpandImage").classList.toggle("active");
 
-    if(expandExperienceSection == false) {
-      setAddExperience(false)
+    if (expandExperienceSection == false) {
+      setAddExperience(false);
     }
   }
 
@@ -34,12 +37,12 @@ export default function AppendExperienceComponent() {
     setStartDate("");
     setEndDate("");
     setCompanyLocation("");
-    setDescription("")
+    setDescription("");
   }
 
   useEffect(() => {
     let info = {
-      companyname: companyName,
+      companyName: companyName,
       positionTitle: positionTitle,
       startDate: startDate,
       endDate: endDate,
@@ -58,11 +61,12 @@ export default function AppendExperienceComponent() {
   ]);
 
   function StoreExperienceInfo() {
-    setExperienceDetailsArray((experienceDetailsArray) => [
-      ...experienceDetailsArray,
+    setExperienceDetailsInfo((experienceDetailsInfo) => [
+      ...experienceDetailsInfo,
       experienceInfo,
     ]);
     ChangeExperienceState();
+    InputReset();
   }
 
   return (
@@ -82,7 +86,7 @@ export default function AppendExperienceComponent() {
           {expandExperienceSection && (
             <div className="addSectionContainer">
               <div id="displayExpreienceContainer">
-                {experienceDetailsArray.map((element, i) => (
+                {experienceDetailsInfo.map((element, i) => (
                   <div key={"experience" + i} className="displayExperience">
                     {element.companyname}
                   </div>
@@ -167,7 +171,9 @@ export default function AppendExperienceComponent() {
               </form>
               <div className="editButton">
                 <div className="deleteButtonContainer">
-                  <button className="deleteButton" onClick={InputReset}>Delete</button>
+                  <button className="deleteButton" onClick={InputReset}>
+                    Delete
+                  </button>
                 </div>
                 <div className="cancelSaveContainer">
                   <button
