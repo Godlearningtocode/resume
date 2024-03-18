@@ -3,12 +3,15 @@ import AppendEducationComponent from "./education";
 import AppendExperienceComponent from "./experience";
 import AppendPersonalComponent from "./personal";
 import DisplayResume from "./resumeDisplay";
+import CustomizeComponent from "./customize";
 import "./App.css";
 
 function App() {
   const [personalDetailsInfo, setPersonalDetailsInfo] = useState([]);
   const [educationDetailsInfo, setEducationDetailsInfo] = useState([]);
   const [experienceDetailsInfo, setExperienceDetailsInfo] = useState([]);
+  const [myFont, setMyFont] = useState("");
+  const [myColor, setMyColor] = useState("#dcae96")
 
   function CustomPageRender() {
     if(document.querySelector('.activeSection')) {
@@ -23,6 +26,8 @@ function App() {
       document.querySelector('#contentSection').classList.add('activeSection')
     }
   }
+
+  console.log(myColor)
 
   return (
     <>
@@ -74,8 +79,9 @@ function App() {
         </div>
         <div id="rightSide">
           <div id="displaySection">
-            <DisplayResume personalDetailsInfo={personalDetailsInfo} educationDetailsInfo={educationDetailsInfo} experienceDetailsInfo={experienceDetailsInfo} />
+            <DisplayResume personalDetailsInfo={personalDetailsInfo} educationDetailsInfo={educationDetailsInfo} experienceDetailsInfo={experienceDetailsInfo} myColor={myColor} />
           </div>
+          <CustomizeComponent myColor={myColor} setMyColor={setMyColor} />
         </div>
       </div>
     </>

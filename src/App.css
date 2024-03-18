@@ -345,7 +345,7 @@ button:focus, button:focus-visible {
   align-items: center;
   width: calc(100% - 80px);
   gap: 10px;
-  background-color: rgba(220, 174, 150, 0.5);
+  background-color: #dcae96;
   padding: 25px 40px;
   min-height: 130px;
 }
@@ -418,4 +418,10 @@ button:focus, button:focus-visible {
 .experienceDescription {
   max-width: 583px;
   word-wrap: break-word;
+}
+
+#customizeSectionContainer {
+  background-color: white;
+  height: fit-content;
+  padding: 25px;
 }
