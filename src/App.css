@@ -256,7 +256,7 @@ button:focus, button:focus-visible {
   justify-content: space-between;
 }
 
-.deleteEducationContainer, .displayExperienceContainer {
+.deleteEducationContainer, .deleteExperienceContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -325,7 +325,7 @@ button:focus, button:focus-visible {
 }
 
 #displaySection {
-  min-width: 850px;
+  min-width: 800px;
 }
 
 #resumeSection {
@@ -335,7 +335,7 @@ button:focus, button:focus-visible {
   background-color: white;
   justify-content: flex-start;
   align-items: center;
-  min-height: 830px;
+  min-height: 1100px;
 }
 
 #personalDetailsSection {
@@ -343,7 +343,7 @@ button:focus, button:focus-visible {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vh;
+  width: calc(100% - 80px);
   gap: 10px;
   background-color: rgba(220, 174, 150, 0.5);
   padding: 25px 40px;
@@ -395,10 +395,27 @@ button:focus, button:focus-visible {
   display: flex;
   flex-direction: row;
   width: 100vh;
+  align-items: flex-start;
   gap: 35px;
   padding-top: 10px;
 }
 
 .educationSchool, .experienceCompanyName {
   font-weight: bolder;
+}
+
+.timePeriod {
+  min-width: 184px;
+}
+
+.experienceCardRight {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.experienceDescription {
+  max-width: 583px;
+  word-wrap: break-word;
 }
