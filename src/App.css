@@ -250,20 +250,20 @@ button:focus, button:focus-visible {
   width: 100%;
 }
 
-.displayEducationCard {
+.displayEducationCard, .displayExperienceCard {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.deleteEducationContainer {
+.deleteEducationContainer, .displayExperienceContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px;
 }
 
-.deleteEducationImage {
+.deleteEducationImage, .deleteExperienceImage {
   width: 25px;
   height: 25px;
 }

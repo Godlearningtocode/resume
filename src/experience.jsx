@@ -60,6 +60,11 @@ export default function AppendExperienceComponent({
     description,
   ]);
 
+  function DeleteExperience(event) {
+    let dummy = experienceDetailsInfo.filter((item) => event.target.parentNode.parentNode.firstChild.textContent !== item.companyName);
+    setExperienceDetailsInfo(dummy)
+  }
+
   function StoreExperienceInfo() {
     setExperienceDetailsInfo((experienceDetailsInfo) => [
       ...experienceDetailsInfo,
@@ -87,8 +92,11 @@ export default function AppendExperienceComponent({
             <div className="addSectionContainer">
               <div id="displayExpreienceContainer">
                 {experienceDetailsInfo.map((element, i) => (
-                  <div key={"experience" + i} className="displayExperience">
-                    {element.companyName}
+                  <div key={element.companyName + element.positionTitle + i} className="displayExperienceCard">
+                    <div className="displayExperience">{element.companyName}</div>
+                    <div className="deleteExperienceContainer" onClick={DeleteExperience}>
+                      <img src="src/assets/trash.png" alt="" className="deleteExperienceImage" />
+                    </div>
                   </div>
                 ))}
               </div>

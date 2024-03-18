@@ -1,10 +1,42 @@
+import { useEffect } from "react";
+
 /* eslint-disable react/prop-types */
 export default function DisplayResume({
   personalDetailsInfo,
   educationDetailsInfo,
   experienceDetailsInfo,
 }) {
-  console.log(educationDetailsInfo, experienceDetailsInfo);
+  function DisplayEducationResume() {
+    return (
+      <div id="educationDetailsSection">
+          <div id="educationHeading">Education</div>
+          <div id="educationContainer">
+            {educationDetailsInfo.map((element, i) => {
+              return (
+                <div className="educationCard" key={element.school + element.degree + i}>
+                  <div className="educationCardLeft">
+                    <div className="timePeriod">
+                      {element.startDate} - {element.endDate}
+                    </div>
+                    <div className="displayLocationEducation">
+                      {element.location}
+                    </div>
+                  </div>
+                  <div className="educationCardRight">
+                    <div className="educationSchool">{element.school}</div>
+                    <div className="educationDegree">{element.degree}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+    )
+  }
+
+  useEffect(() => {
+    DisplayEducationResume()
+  }, [personalDetailsInfo, educationDetailsInfo, experienceDetailsInfo])
 
   return (
     <div id="resumeSection">
@@ -28,31 +60,7 @@ export default function DisplayResume({
         </div>
       </div>
       {educationDetailsInfo.length > 0 && (
-        <div id="educationDetailsSection">
-          <div id="educationHeading">Education</div>
-          <div id="educationContainer">
-            {educationDetailsInfo.map((element, i) => {
-              return (
-                <div className="educationCard" key={i}>
-                  <div className="educationCardLeft">
-                    <div className="timePeriod">
-                      {element.startDate} - {element.endDate}
-                    </div>
-                    <div className="displayLocationEducation">
-                      {element.location}
-                    </div>
-                  </div>
-                  <div className="educationCardRight">
-                    {" "}
-                    {console.log(element)}
-                    <div className="educationSchool">{element.school}</div>
-                    <div className="educationDegree">{element.degree}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <DisplayEducationResume />
       )}
       {experienceDetailsInfo.length > 0 && (
         <div id="experienceDetailsSection">

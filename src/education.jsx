@@ -39,12 +39,8 @@ export default function AppendEducationComponent({
   }
 
   function DeleteEducation(event) {
-    let deleteElement = event.target.parentNode.parentNode;
-    let arrayIndex = educationDetailsInfo.findIndex((element) => element.id = deleteElement.id);
-    console.log(educationDetailsInfo, arrayIndex)
-    arrayIndex > -1 ? educationDetailsInfo.splice(arrayIndex, 1) : console.log("error")
-    console.log(educationDetailsInfo)
-    // deleteElement.remove()
+    let dummy = educationDetailsInfo.filter((item) => event.target.parentNode.parentNode.firstChild.textContent !== item.school);
+    setEducationDetailsInfo(dummy)
   }
 
   useEffect(() => {
@@ -86,8 +82,8 @@ export default function AppendEducationComponent({
           {expandEducationSection && (
             <div className="addSectionContainer">
               <div id="displayEducationContainer">
-                {educationDetailsInfo.map((element) => (
-                  <div key={element.school + element.degree} className="displayEducationCard" id={element.school + element.degree}>
+                {educationDetailsInfo.map((element, i) => (
+                  <div key={element.school + element.degree + i} className="displayEducationCard" id={element.school + element.degree + i}>
                     <div className="displayEducation">{element.school}</div>
                     <div className="deleteEducationContainer" onClick={DeleteEducation}>
                       <img src="src/assets/trash.png" alt="" className="deleteEducationImage" />
