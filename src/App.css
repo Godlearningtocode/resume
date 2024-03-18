@@ -250,6 +250,24 @@ button:focus, button:focus-visible {
   width: 100%;
 }
 
+.displayEducationCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.deleteEducationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.deleteEducationImage {
+  width: 25px;
+  height: 25px;
+}
+
 .displayEducation, .displayExperience {
   display: flex;
   justify-content: flex-start;
@@ -315,8 +333,9 @@ button:focus, button:focus-visible {
   flex-direction: column;
   gap: 15px;
   background-color: white;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 830px;
 }
 
 #personalDetailsSection {
@@ -325,9 +344,10 @@ button:focus, button:focus-visible {
   justify-content: center;
   align-items: center;
   width: 100vh;
-  gap: 5px;
+  gap: 10px;
   background-color: rgba(220, 174, 150, 0.5);
   padding: 25px 40px;
+  min-height: 130px;
 }
 
 .topSection {

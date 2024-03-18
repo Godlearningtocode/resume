@@ -27,59 +27,65 @@ export default function DisplayResume({
           </div>
         </div>
       </div>
-      <div id="educationDetailsSection">
-        <div id="educationHeading">Education</div>
-        <div id="educationContainer">
-          {educationDetailsInfo.map((element, i) => {
-            return (
-              <div className="educationCard" key={i}>
-                <div className="educationCardLeft">
-                  <div className="timePeriod">
-                    {element.startDate} - {element.endDate}
+      {educationDetailsInfo.length > 0 && (
+        <div id="educationDetailsSection">
+          <div id="educationHeading">Education</div>
+          <div id="educationContainer">
+            {educationDetailsInfo.map((element, i) => {
+              return (
+                <div className="educationCard" key={i}>
+                  <div className="educationCardLeft">
+                    <div className="timePeriod">
+                      {element.startDate} - {element.endDate}
+                    </div>
+                    <div className="displayLocationEducation">
+                      {element.location}
+                    </div>
                   </div>
-                  <div className="displayLocationEducation">
-                    {element.location}
+                  <div className="educationCardRight">
+                    {" "}
+                    {console.log(element)}
+                    <div className="educationSchool">{element.school}</div>
+                    <div className="educationDegree">{element.degree}</div>
                   </div>
                 </div>
-                <div className="educationCardRight">
-                  {" "}
-                  {console.log(element)}
-                  <div className="educationSchool">{element.school}</div>
-                  <div className="educationDegree">{element.degree}</div>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-      <div id="experienceDetailsSection">
-        <div id="experienceHeading">Professional Experience</div>
-        <div id="experienceContainer">
-          {experienceDetailsInfo.map((element, i) => {
-            return (
-              <div className="experienceCard" key={i}>
-                <div className="experienceCardLeft">
-                  <div className="timePeriod">
-                    {element.startDate} - {element.endDate}
+      )}
+      {experienceDetailsInfo.length > 0 && (
+        <div id="experienceDetailsSection">
+          <div id="experienceHeading">Professional Experience</div>
+          <div id="experienceContainer">
+            {experienceDetailsInfo.map((element, i) => {
+              return (
+                <div className="experienceCard" key={i}>
+                  <div className="experienceCardLeft">
+                    <div className="timePeriod">
+                      {element.startDate} - {element.endDate}
+                    </div>
+                    <div className="displayLocationEducation">
+                      {element.companyLocation}
+                    </div>
                   </div>
-                  <div className="displayLocationEducation">
-                    {element.companyLocation}
+                  <div className="experienceCardRight">
+                    <div className="experienceCompanyName">
+                      {element.companyName}
+                    </div>
+                    <div className="experiencePositionTitle">
+                      {element.positionTitle}
+                    </div>
+                    <div className="experienceDescription">
+                      {element.description}
+                    </div>
                   </div>
                 </div>
-                <div className="experienceCardRight">
-                  <div className="experienceCompanyName">{element.companyName}</div>
-                  <div className="experiencePositionTitle">
-                    {element.positionTitle}
-                  </div>
-                  <div className="experienceDescription">
-                    {element.description}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 
-export default function AppendEducationComponent({educationDetailsInfo, setEducationDetailsInfo}) {
+export default function AppendEducationComponent({
+  educationDetailsInfo,
+  setEducationDetailsInfo,
+}) {
   const [expandEducationSection, setExpandEducationSection] = useState(false);
   const [addEducation, setAddEducation] = useState(false);
   const [school, setSchool] = useState("");
@@ -18,8 +21,8 @@ export default function AppendEducationComponent({educationDetailsInfo, setEduca
 
     document.querySelector(".expandImage").classList.toggle("active");
 
-    if(expandEducationSection == false) {
-      setAddEducation(false)
+    if (expandEducationSection == false) {
+      setAddEducation(false);
     }
   }
 
@@ -32,7 +35,16 @@ export default function AppendEducationComponent({educationDetailsInfo, setEduca
     setdegree("");
     setStartDate("");
     setEndDate("");
-    setEducationLocation("")
+    setEducationLocation("");
+  }
+
+  function DeleteEducation(event) {
+    let deleteElement = event.target.parentNode.parentNode;
+    let arrayIndex = educationDetailsInfo.findIndex((element) => element.id = deleteElement.id);
+    console.log(educationDetailsInfo, arrayIndex)
+    arrayIndex > -1 ? educationDetailsInfo.splice(arrayIndex, 1) : console.log("error")
+    console.log(educationDetailsInfo)
+    // deleteElement.remove()
   }
 
   useEffect(() => {
@@ -42,13 +54,17 @@ export default function AppendEducationComponent({educationDetailsInfo, setEduca
       startDate: startDate,
       endDate: endDate,
       location: educationLocation,
+      id: school + degree
     };
 
     setEducationInfo(info);
   }, [school, degree, startDate, endDate, educationLocation]);
 
   function StoreEducationInfo() {
-    setEducationDetailsInfo((educationDetailsInfo) => [...educationDetailsInfo, educationInfo])
+    setEducationDetailsInfo((educationDetailsInfo) => [
+      ...educationDetailsInfo,
+      educationInfo,
+    ]);
     ChangeEducationState();
     InputReset();
   }
@@ -69,10 +85,13 @@ export default function AppendEducationComponent({educationDetailsInfo, setEduca
           </button>
           {expandEducationSection && (
             <div className="addSectionContainer">
-              <div  id="displayEducationContainer">
-                {educationDetailsInfo.map((element, i) => (
-                  <div key={i} className={"displayEducation"}>
-                    {element.school}
+              <div id="displayEducationContainer">
+                {educationDetailsInfo.map((element) => (
+                  <div key={element.school + element.degree} className="displayEducationCard" id={element.school + element.degree}>
+                    <div className="displayEducation">{element.school}</div>
+                    <div className="deleteEducationContainer" onClick={DeleteEducation}>
+                      <img src="src/assets/trash.png" alt="" className="deleteEducationImage" />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -144,7 +163,9 @@ export default function AppendEducationComponent({educationDetailsInfo, setEduca
               </form>
               <div className="editButton">
                 <div className="deleteButtonContainer">
-                  <button className="deleteButton" onClick={InputReset}>Delete</button>
+                  <button className="deleteButton" onClick={InputReset}>
+                    Delete
+                  </button>
                 </div>
                 <div className="cancelSaveContainer">
                   <button
