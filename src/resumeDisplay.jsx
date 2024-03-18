@@ -5,7 +5,8 @@ export default function DisplayResume({
   personalDetailsInfo,
   educationDetailsInfo,
   experienceDetailsInfo,
-  myColor
+  myColor,
+  myFont
 }) {
   function DisplayEducationResume() {
     return (
@@ -74,7 +75,7 @@ export default function DisplayResume({
   }
 
   return (
-    <div id="resumeSection">
+    <div id="resumeSection" style={{fontFamily: myFont}}>
       <div id="personalDetailsSection" style={{backgroundColor: myColor}}>
         <div className="topSection">
           <div id="nameHeading">{personalDetailsInfo.fullName}</div>

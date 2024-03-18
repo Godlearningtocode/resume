@@ -10,7 +10,7 @@ function App() {
   const [personalDetailsInfo, setPersonalDetailsInfo] = useState([]);
   const [educationDetailsInfo, setEducationDetailsInfo] = useState([]);
   const [experienceDetailsInfo, setExperienceDetailsInfo] = useState([]);
-  const [myFont, setMyFont] = useState("");
+  const [myFont, setMyFont] = useState("Serif");
   const [myColor, setMyColor] = useState("#dcae96")
 
   function CustomPageRender() {
@@ -26,8 +26,6 @@ function App() {
       document.querySelector('#contentSection').classList.add('activeSection')
     }
   }
-
-  console.log(myColor)
 
   return (
     <>
@@ -79,9 +77,9 @@ function App() {
         </div>
         <div id="rightSide">
           <div id="displaySection">
-            <DisplayResume personalDetailsInfo={personalDetailsInfo} educationDetailsInfo={educationDetailsInfo} experienceDetailsInfo={experienceDetailsInfo} myColor={myColor} />
+            <DisplayResume personalDetailsInfo={personalDetailsInfo} educationDetailsInfo={educationDetailsInfo} experienceDetailsInfo={experienceDetailsInfo} myColor={myColor} myFont={myFont} />
           </div>
-          <CustomizeComponent myColor={myColor} setMyColor={setMyColor} />
+          <CustomizeComponent myColor={myColor} setMyColor={setMyColor} myFont={myFont} setMyFont={setMyFont}/>
         </div>
       </div>
     </>

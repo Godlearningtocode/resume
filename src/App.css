@@ -326,6 +326,7 @@ button:focus, button:focus-visible {
 
 #displaySection {
   min-width: 800px;
+  font-family: monospace;
 }
 
 #resumeSection {
