@@ -6,6 +6,24 @@ import DisplayResume from "./resumeDisplay";
 import CustomizeComponent from "./customize";
 import "./App.css";
 
+function ClearResumeButton() {
+  setSchool("");
+  setdegree("");
+  setStartDate("");
+  setEndDate("");
+  setEducationLocation("");
+  setCompanyName("");
+  setPositionTitle("");
+  setStartDate("");
+  setEndDate("");
+  setCompanyLocation("");
+  setDescription("");
+  setFullName("");
+  setEmail("");
+  setPhoneNumber("");
+  setAddress("");
+}
+
 function App() {
   const [toggleInput, setToggleInput] = useState(false);
   const [personalDetailsInfo, setPersonalDetailsInfo] = useState([]);
@@ -13,6 +31,7 @@ function App() {
   const [experienceDetailsInfo, setExperienceDetailsInfo] = useState([]);
   const [myFont, setMyFont] = useState("Serif");
   const [myColor, setMyColor] = useState("#dcae96");
+  const [fontColor, setFontColor] = useState('#0A192F')
 
   function CustomPageRender() {
     if (document.querySelector(".activeSection")) {
@@ -43,6 +62,8 @@ function App() {
         setMyColor={setMyColor}
         myFont={myFont}
         setMyFont={setMyFont}
+        fontColor={fontColor}
+        setFontColor={setFontColor}
       />
     ) : (
       <div id="inputContainer">

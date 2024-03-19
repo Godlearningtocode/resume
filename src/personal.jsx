@@ -20,6 +20,27 @@ export default function AppendPersonalComponent({
     setPersonalDetailsInfo(info);
   }
 
+  function InputReset() {
+    setFullName("");
+    setEmail("");
+    setPhoneNumber("");
+    setAddress("");
+  }
+
+  function DeletData() {
+    InputReset();
+    StorePersonalDetails()
+  }
+
+  useEffect(() => {
+    const clearResume = document.querySelector("#clearResumeContainer");
+    if (clearResume) {
+      clearResume.addEventListener("click", () => {
+        InputReset();
+      });
+    }
+  });
+
   return (
     <div id="personalInput">
       <div className="heading">Personal Details</div>
@@ -78,7 +99,12 @@ export default function AppendPersonalComponent({
         </div>
       </form>
       <div className="cancelSaveContainer">
-        <button className="cancelButton">Cancel</button>
+        <button className="deleteButton" onClick={DeletData}>
+          Delete
+        </button>
+        <button className="cancelButton" onClick={InputReset}>
+          Cancel
+        </button>
         <button className="saveButton" onClick={StorePersonalDetails}>
           Save
         </button>

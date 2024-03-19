@@ -6,6 +6,8 @@ export default function CustomizeComponent({
   setMyColor,
   myFont,
   setMyFont,
+  fontColor,
+  setFontColor
 }) {  
   useEffect(() => {
     let activeFont = document.querySelector(".activeFont");
@@ -13,7 +15,12 @@ export default function CustomizeComponent({
       activeFont.style.backgroundColor = myColor;
     } 
 
-  }, [myColor]);
+    let resumeDisplay = document.querySelector('#resumeSection');
+    if(resumeDisplay) {
+      resumeDisplay.style.color = fontColor
+    }
+
+  }, [myColor, fontColor]);
 
   useEffect(() => {
     const currentActive = document.querySelector('.activeFont');
@@ -68,6 +75,10 @@ export default function CustomizeComponent({
             <div className="fontExample">Aa</div>
             <div className="fontName">Mono</div>
           </div>
+        </div>
+        <div id="fontColor">
+          <label htmlFor="fontColorPicker">Pick Font color</label>
+          <input type="color" id="colorPicker" value={fontColor} onChange={(e) => setFontColor(e.target.value)} />
         </div>
       </div>
     </div>
