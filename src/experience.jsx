@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
+import downArrow from "/down-arrow.png"
+import trash from "/trash.png"
 
 export default function AppendExperienceComponent({
   experienceDetailsInfo,
@@ -89,7 +91,7 @@ export default function AppendExperienceComponent({
           <button className="expandButton" onClick={DisplayAddExperience}>
             <div className="heading">Experience</div>
             <img
-              src="/public/down-arrow.png"
+              src={downArrow}
               alt="downward arrow"
               className="expandImage experienceExpandImage"
               width={50 + "px"}
@@ -103,7 +105,7 @@ export default function AppendExperienceComponent({
                   <div key={element.companyName + element.positionTitle + i} className="displayExperienceCard">
                     <div className="displayExperience">{element.companyName}</div>
                     <div className="deleteExperienceContainer" onClick={DeleteExperience}>
-                      <img src="/public/trash.png" alt="" className="deleteExperienceImage" />
+                      <img src={trash} alt="" className="deleteExperienceImage" />
                     </div>
                   </div>
                 ))}

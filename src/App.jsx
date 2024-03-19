@@ -5,6 +5,10 @@ import AppendPersonalComponent from "./personal";
 import DisplayResume from "./resumeDisplay";
 import CustomizeComponent from "./customize";
 import "./App.css";
+import contentBlack from "/contentBlack.png"
+import custom from "/custom.png"
+import trash from "/trash.png"
+import display from "/display.png"
 
 function App() {
   const [toggleInput, setToggleInput] = useState(false);
@@ -79,7 +83,7 @@ function App() {
               onClick={ContentPageRender}
             >
               <img
-                src="/public/contentBlack.png"
+                src={contentBlack}
                 alt="Content Page"
                 className="navButtonImage"
               />
@@ -91,7 +95,7 @@ function App() {
               onClick={CustomPageRender}
             >
               <img
-                src="/public/custom.png"
+                src={custom}
                 alt="Customize"
                 className="navButtonImage"
               />
@@ -102,7 +106,7 @@ function App() {
             <div id="displayInputButtons">
               <div className="displayInputContainer" id="clearResumeContainer">
                 <img
-                  src="/public/trash.png"
+                  src={trash}
                   alt=""
                   className="displayButton"
                 />
@@ -110,7 +114,7 @@ function App() {
               </div>
               <div className="displayInputContainer" id="loadResumeContainer">
                 <img
-                  src="/public/display.png"
+                  src={display}
                   alt=""
                   className="displayButton"
                 />
