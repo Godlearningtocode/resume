@@ -36,10 +36,11 @@ export default function AppendPersonalComponent({
     const clearResume = document.querySelector("#clearResumeContainer");
     if (clearResume) {
       clearResume.addEventListener("click", () => {
-        InputReset();
+        InputReset()
+        setPersonalDetailsInfo("");
       });
     }
-  });
+  }, [fullName, email, phoneNumber, address]);
 
   return (
     <div id="personalInput">

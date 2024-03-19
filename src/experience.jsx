@@ -15,6 +15,13 @@ export default function AppendExperienceComponent({
   const [description, setDescription] = useState("");
   const [experienceInfo, setExperienceInfo] = useState("");
 
+  useEffect(() => {
+    const clearResume = document.querySelector("#clearResumeContainer");
+    clearResume.addEventListener('click', () => {
+      setExperienceDetailsInfo([])
+    })
+  }, [companyName, positionTitle, startDate, endDate, companyLocation, description]);
+
   function DisplayAddExperience() {
     expandExperienceSection
       ? setExpandExperienceSection(false)

@@ -14,6 +14,13 @@ export default function AppendEducationComponent({
   const [educationInfo, setEducationInfo] = useState("");
   const [educationDetailsArray, setEducationDetailsArray] = useState([]);
 
+  useEffect(() => {
+    const clearResume = document.querySelector("#clearResumeContainer");
+    clearResume.addEventListener('click', () => {
+      setEducationDetailsInfo([])
+    })
+  }, [school, degree, startDate, endDate, educationLocation])
+
   function ChangeState() {
     expandEducationSection
       ? setExpandEducationSection(false)
