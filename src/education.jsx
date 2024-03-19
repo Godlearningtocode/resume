@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
 export default function AppendEducationComponent({
@@ -12,7 +14,6 @@ export default function AppendEducationComponent({
   const [endDate, setEndDate] = useState("");
   const [educationLocation, setEducationLocation] = useState("");
   const [educationInfo, setEducationInfo] = useState("");
-  const [educationDetailsArray, setEducationDetailsArray] = useState([]);
 
   useEffect(() => {
     const clearResume = document.querySelector("#clearResumeContainer");
@@ -79,7 +80,7 @@ export default function AppendEducationComponent({
           <button className="expandButton" onClick={ChangeState}>
             <div className="heading">Education</div>
             <img
-              src="public/down-arrow.png"
+              src="/public/down-arrow.png"
               alt=""
               className="expandImage"
               width={50 + "px"}
@@ -93,7 +94,7 @@ export default function AppendEducationComponent({
                   <div key={element.school + element.degree + i} className="displayEducationCard" id={element.school + element.degree + i}>
                     <div className="displayEducation">{element.school}</div>
                     <div className="deleteEducationContainer" onClick={DeleteEducation}>
-                      <img src="public/trash.png" alt="" className="deleteEducationImage" />
+                      <img src="/public/trash.png" alt="" className="deleteEducationImage" />
                     </div>
                   </div>
                 ))}

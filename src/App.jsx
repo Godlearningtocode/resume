@@ -79,7 +79,7 @@ function App() {
               onClick={ContentPageRender}
             >
               <img
-                src="public/contentBlack.png"
+                src="/public/contentBlack.png"
                 alt="Content Page"
                 className="navButtonImage"
               />
@@ -91,7 +91,7 @@ function App() {
               onClick={CustomPageRender}
             >
               <img
-                src="public/custom.png"
+                src="/public/custom.png"
                 alt="Customize"
                 className="navButtonImage"
               />
@@ -102,7 +102,7 @@ function App() {
             <div id="displayInputButtons">
               <div className="displayInputContainer" id="clearResumeContainer">
                 <img
-                  src="public/trash.png"
+                  src="/public/trash.png"
                   alt=""
                   className="displayButton"
                 />
@@ -110,7 +110,7 @@ function App() {
               </div>
               <div className="displayInputContainer" id="loadResumeContainer">
                 <img
-                  src="public/display.png"
+                  src="/public/display.png"
                   alt=""
                   className="displayButton"
                 />

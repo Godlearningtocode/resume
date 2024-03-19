@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 
 export default function AppendExperienceComponent({
@@ -6,7 +8,6 @@ export default function AppendExperienceComponent({
 }) {
   const [expandExperienceSection, setExpandExperienceSection] = useState(false);
   const [addExperience, setAddExperience] = useState(false);
-  const [experienceDetailsArray, setExperienceDetailsArray] = useState([]);
   const [companyName, setCompanyName] = useState("");
   const [positionTitle, setPositionTitle] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -88,7 +89,7 @@ export default function AppendExperienceComponent({
           <button className="expandButton" onClick={DisplayAddExperience}>
             <div className="heading">Experience</div>
             <img
-              src="public/down-arrow.png"
+              src="/public/down-arrow.png"
               alt="downward arrow"
               className="expandImage experienceExpandImage"
               width={50 + "px"}
@@ -102,7 +103,7 @@ export default function AppendExperienceComponent({
                   <div key={element.companyName + element.positionTitle + i} className="displayExperienceCard">
                     <div className="displayExperience">{element.companyName}</div>
                     <div className="deleteExperienceContainer" onClick={DeleteExperience}>
-                      <img src="public/trash.png" alt="" className="deleteExperienceImage" />
+                      <img src="/public/trash.png" alt="" className="deleteExperienceImage" />
                     </div>
                   </div>
                 ))}
