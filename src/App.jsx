@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AppendEducationComponent from "./education";
 import AppendExperienceComponent from "./experience";
 import AppendPersonalComponent from "./personal";
@@ -7,24 +7,59 @@ import CustomizeComponent from "./customize";
 import "./App.css";
 
 function App() {
+  const [toggleInput, setToggleInput] = useState(false);
   const [personalDetailsInfo, setPersonalDetailsInfo] = useState([]);
   const [educationDetailsInfo, setEducationDetailsInfo] = useState([]);
   const [experienceDetailsInfo, setExperienceDetailsInfo] = useState([]);
   const [myFont, setMyFont] = useState("Serif");
-  const [myColor, setMyColor] = useState("#dcae96")
+  const [myColor, setMyColor] = useState("#dcae96");
 
   function CustomPageRender() {
-    if(document.querySelector('.activeSection')) {
-      document.querySelector('.activeSection').classList.remove('activeSection');
-      document.querySelector('#customizeSection').classList.add('activeSection')
+    if (document.querySelector(".activeSection")) {
+      document
+        .querySelector(".activeSection")
+        .classList.remove("activeSection");
+      document
+        .querySelector("#customizeSection")
+        .classList.add("activeSection");
+      setToggleInput(true);
     }
   }
 
   function ContentPageRender() {
-    if(document.querySelector('.activeSection')) {
-      document.querySelector('.activeSection').classList.remove('activeSection');
-      document.querySelector('#contentSection').classList.add('activeSection')
+    if (document.querySelector(".activeSection")) {
+      document
+        .querySelector(".activeSection")
+        .classList.remove("activeSection");
+      document.querySelector("#contentSection").classList.add("activeSection");
+      setToggleInput(false);
     }
+  }
+
+  function ToggleDisplay() {
+    return toggleInput == true ? (
+      <CustomizeComponent
+        myColor={myColor}
+        setMyColor={setMyColor}
+        myFont={myFont}
+        setMyFont={setMyFont}
+      />
+    ) : (
+      <div id="inputContainer">
+        <AppendPersonalComponent
+          personalDetailsInfo={personalDetailsInfo}
+          setPersonalDetailsInfo={setPersonalDetailsInfo}
+        />
+        <AppendEducationComponent
+          educationDetailsInfo={educationDetailsInfo}
+          setEducationDetailsInfo={setEducationDetailsInfo}
+        />
+        <AppendExperienceComponent
+          experienceDetailsInfo={experienceDetailsInfo}
+          setExperienceDetailsInfo={setExperienceDetailsInfo}
+        />
+      </div>
+    );
   }
 
   return (
@@ -32,7 +67,11 @@ function App() {
       <div id="mainSection">
         <div id="leftSide">
           <div id="customSection">
-            <div className="activeSection navButtonContainer" id="contentSection" onClick={ContentPageRender}>
+            <div
+              className="activeSection navButtonContainer"
+              id="contentSection"
+              onClick={ContentPageRender}
+            >
               <img
                 src="src/assets/contentBlack.png"
                 alt="Content Page"
@@ -40,7 +79,11 @@ function App() {
               />
               <div id="contentText">Content</div>
             </div>
-            <div className="navButtonContainer" id="customizeSection" onClick={CustomPageRender}>
+            <div
+              className="navButtonContainer"
+              id="customizeSection"
+              onClick={CustomPageRender}
+            >
               <img
                 src="src/assets/custom.png"
                 alt="Customize"
@@ -68,18 +111,19 @@ function App() {
                 <div id="loadResume">Load Resume</div>
               </div>
             </div>
-            <div id="inputContainer">
-              <AppendPersonalComponent personalDetailsInfo={personalDetailsInfo} setPersonalDetailsInfo={setPersonalDetailsInfo}/>
-              <AppendEducationComponent educationDetailsInfo={educationDetailsInfo} setEducationDetailsInfo={setEducationDetailsInfo} />
-              <AppendExperienceComponent experienceDetailsInfo={experienceDetailsInfo} setExperienceDetailsInfo={setExperienceDetailsInfo} />
-            </div>
+            <ToggleDisplay />
           </div>
         </div>
         <div id="rightSide">
           <div id="displaySection">
-            <DisplayResume personalDetailsInfo={personalDetailsInfo} educationDetailsInfo={educationDetailsInfo} experienceDetailsInfo={experienceDetailsInfo} myColor={myColor} myFont={myFont} />
+            <DisplayResume
+              personalDetailsInfo={personalDetailsInfo}
+              educationDetailsInfo={educationDetailsInfo}
+              experienceDetailsInfo={experienceDetailsInfo}
+              myColor={myColor}
+              myFont={myFont}
+            />
           </div>
-          <CustomizeComponent myColor={myColor} setMyColor={setMyColor} myFont={myFont} setMyFont={setMyFont}/>
         </div>
       </div>
     </>

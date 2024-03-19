@@ -425,4 +425,48 @@ button:focus, button:focus-visible {
   background-color: white;
   height: fit-content;
   padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
+
+.customizeHeading {
+  font-size: 1.4rem;
+  font-weight: bolder;
+}
+
+#colorPickerCard {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 2px 10px;
+}
+
+#colorPicker {
+  border: none;
+  max-width: 200px;
+}
+
+#colorPickerCard > label {
+  font-weight: 400;
+}
+
+#fontContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#fontsCard   {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.fontCase {
+  padding: 2px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+

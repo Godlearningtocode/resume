@@ -1,9 +1,32 @@
+import { useEffect, useState } from "react";
+
+/* eslint-disable react/prop-types */
 export default function CustomizeComponent({
   myColor,
   setMyColor,
-    myFont, 
-    setMyFont
-}) {
+  myFont,
+  setMyFont,
+}) {  
+  useEffect(() => {
+    let activeFont = document.querySelector(".activeFont");
+    if (activeFont) {
+      activeFont.style.backgroundColor = myColor;
+    } 
+
+  }, [myColor]);
+
+  useEffect(() => {
+    const currentActive = document.querySelector('.activeFont');
+    if(currentActive) {
+      currentActive.classList.remove('activeFont')
+    } 
+
+    const newActive = document.querySelector('#' + myFont);
+    if(newActive) {
+      newActive.classList.add('activeFont')
+    }
+  })
+
   function SetSerif() {
     setMyFont("serif");
   }
@@ -13,7 +36,7 @@ export default function CustomizeComponent({
   }
 
   function SetMono() {
-    setMyFont("monospace")
+    setMyFont("monospace");
   }
 
   return (
@@ -33,23 +56,17 @@ export default function CustomizeComponent({
       <div id="fontContainer">
         <div className="customizeHeading">Fonts</div>
         <div id="fontsCard">
-          <div className="fontCase">
+          <div className="fontCase" id="serif" onClick={() => {SetSerif()}}>
             <div className="fontExample">Aa</div>
-            <div className="fontName" onClick={SetSerif}>
-              Serif
-            </div>
+            <div className="fontName">Serif</div>
           </div>
-          <div className="fontCase">
+          <div className="fontCase" id="sans-serif" onClick={() => {SetSans()}}>
             <div className="fontExample">Aa</div>
-            <div className="fontName" onClick={SetSans}>
-              sans-Serif
-            </div>
+            <div className="fontName">sans-Serif</div>
           </div>
-          <div className="fontCase">
+          <div className="fontCase" id="monospace" onClick={() => {SetMono()}}>
             <div className="fontExample">Aa</div>
-            <div className="fontName" onClick={SetMono}>
-              Mono
-            </div>
+            <div className="fontName">Mono</div>
           </div>
         </div>
       </div>
