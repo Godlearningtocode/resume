@@ -6,7 +6,7 @@ export default function DisplayResume({
   educationDetailsInfo,
   experienceDetailsInfo,
   myColor,
-  myFont
+  myFont,
 }) {
   function DisplayEducationResume() {
     return (
@@ -42,59 +42,73 @@ export default function DisplayResume({
   function DisplayExperienceResume() {
     return (
       <div id="experienceDetailsSection">
-      <div id="experienceHeading">Professional Experience</div>
-      <div id="experienceContainer">
-        {experienceDetailsInfo.map((element, i) => {
-          return (
-            <div className="experienceCard" key={i}>
-              <div className="experienceCardLeft">
-                <div className="timePeriod">
-                  {element.startDate} - {element.endDate}
+        <div id="experienceHeading">Professional Experience</div>
+        <div id="experienceContainer">
+          {experienceDetailsInfo.map((element, i) => {
+            return (
+              <div className="experienceCard" key={i}>
+                <div className="experienceCardLeft">
+                  <div className="timePeriod">
+                    {element.startDate} - {element.endDate}
+                  </div>
+                  <div className="displayLocationEducation">
+                    {element.companyLocation}
+                  </div>
                 </div>
-                <div className="displayLocationEducation">
-                  {element.companyLocation}
+                <div className="experienceCardRight">
+                  <div className="experienceCompanyName">
+                    {element.companyName}
+                  </div>
+                  <div className="experiencePositionTitle">
+                    {element.positionTitle}
+                  </div>
+                  <div className="experienceDescription">
+                    {element.description}
+                  </div>
                 </div>
               </div>
-              <div className="experienceCardRight">
-                <div className="experienceCompanyName">
-                  {element.companyName}
-                </div>
-                <div className="experiencePositionTitle">
-                  {element.positionTitle}
-                </div>
-                <div className="experienceDescription">
-                  {element.description}
-                </div>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
-    )
+    );
   }
 
-  return (
-    <div id="resumeSection" style={{fontFamily: myFont}}>
-      <div id="personalDetailsSection" style={{backgroundColor: myColor}}>
+  function DisplayPersonalDetails() {
+    return (
+      <div id="personalDetailsSection" style={{ backgroundColor: myColor }}>
+        {personalDetailsInfo.validity === 1 && <div id="personalDetailsContainer">
         <div className="topSection">
           <div id="nameHeading">{personalDetailsInfo.fullName}</div>
         </div>
         <div className="bottomSection">
           <div id="emailContainer">
-            <img src="" alt="" className="emailLogo" />
-            <div id="emailHeading">{personalDetailsInfo.email}</div>
+            <div id="emailHeading">
+              <h3 className="emailEmoji">✉️ </h3>
+              {personalDetailsInfo.email}
+            </div>
           </div>
           <div id="numberSection">
-            <img src="" alt="" className="phoneLogo" />
-            <div id="phoneHeading">{personalDetailsInfo.phoneNumber}</div>
+            <div id="phoneHeading">
+              <h3 className="phoneEmoji">📞</h3>
+              {personalDetailsInfo.phoneNumber}
+            </div>
           </div>
           <div id="locationContainer">
-            <img src="" alt="" className="locationLogo" />
-            <div className="locationHeading">{personalDetailsInfo.address}</div>
+            <div id="locationHeading">
+              <h3 className="locationEmoji">📍</h3>
+              {personalDetailsInfo.address}
+            </div>
           </div>
         </div>
+        </div>}
       </div>
+    );
+  }
+
+  return (
+    <div id="resumeSection" style={{ fontFamily: myFont }}>
+      {personalDetailsInfo && <DisplayPersonalDetails />}
       {educationDetailsInfo.length > 0 && <DisplayEducationResume />}
       {experienceDetailsInfo.length > 0 && <DisplayExperienceResume />}
     </div>

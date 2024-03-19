@@ -88,7 +88,7 @@ export default function AppendExperienceComponent({
           <button className="expandButton" onClick={DisplayAddExperience}>
             <div className="heading">Experience</div>
             <img
-              src="src/assets/down-arrow.png"
+              src="public/down-arrow.png"
               alt="downward arrow"
               className="expandImage experienceExpandImage"
               width={50 + "px"}
@@ -102,7 +102,7 @@ export default function AppendExperienceComponent({
                   <div key={element.companyName + element.positionTitle + i} className="displayExperienceCard">
                     <div className="displayExperience">{element.companyName}</div>
                     <div className="deleteExperienceContainer" onClick={DeleteExperience}>
-                      <img src="src/assets/trash.png" alt="" className="deleteExperienceImage" />
+                      <img src="public/trash.png" alt="" className="deleteExperienceImage" />
                     </div>
                   </div>
                 ))}

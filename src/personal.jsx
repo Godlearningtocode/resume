@@ -15,6 +15,7 @@ export default function AppendPersonalComponent({
       email: email,
       phoneNumber: phoneNumber,
       address: address,
+      validity: 1
     };
 
     setPersonalDetailsInfo(info);

@@ -6,24 +6,6 @@ import DisplayResume from "./resumeDisplay";
 import CustomizeComponent from "./customize";
 import "./App.css";
 
-function ClearResumeButton() {
-  setSchool("");
-  setdegree("");
-  setStartDate("");
-  setEndDate("");
-  setEducationLocation("");
-  setCompanyName("");
-  setPositionTitle("");
-  setStartDate("");
-  setEndDate("");
-  setCompanyLocation("");
-  setDescription("");
-  setFullName("");
-  setEmail("");
-  setPhoneNumber("");
-  setAddress("");
-}
-
 function App() {
   const [toggleInput, setToggleInput] = useState(false);
   const [personalDetailsInfo, setPersonalDetailsInfo] = useState([]);
@@ -32,6 +14,7 @@ function App() {
   const [myFont, setMyFont] = useState("Serif");
   const [myColor, setMyColor] = useState("#dcae96");
   const [fontColor, setFontColor] = useState('#0A192F')
+  const [contentColor, setContentColor] = useState("#FFFFFF")
 
   function CustomPageRender() {
     if (document.querySelector(".activeSection")) {
@@ -64,6 +47,8 @@ function App() {
         setMyFont={setMyFont}
         fontColor={fontColor}
         setFontColor={setFontColor}
+        contentColor={contentColor}
+        setContentColor={setContentColor}
       />
     ) : (
       <div id="inputContainer">
@@ -94,7 +79,7 @@ function App() {
               onClick={ContentPageRender}
             >
               <img
-                src="src/assets/contentBlack.png"
+                src="public/contentBlack.png"
                 alt="Content Page"
                 className="navButtonImage"
               />
@@ -106,7 +91,7 @@ function App() {
               onClick={CustomPageRender}
             >
               <img
-                src="src/assets/custom.png"
+                src="public/custom.png"
                 alt="Customize"
                 className="navButtonImage"
               />
@@ -117,7 +102,7 @@ function App() {
             <div id="displayInputButtons">
               <div className="displayInputContainer" id="clearResumeContainer">
                 <img
-                  src="src/assets/trash.png"
+                  src="public/trash.png"
                   alt=""
                   className="displayButton"
                 />
@@ -125,7 +110,7 @@ function App() {
               </div>
               <div className="displayInputContainer" id="loadResumeContainer">
                 <img
-                  src="src/assets/display.png"
+                  src="public/display.png"
                   alt=""
                   className="displayButton"
                 />
