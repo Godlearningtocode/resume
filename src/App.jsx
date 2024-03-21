@@ -4,11 +4,13 @@ import AppendExperienceComponent from "./experience";
 import AppendPersonalComponent from "./personal";
 import DisplayResume from "./resumeDisplay";
 import CustomizeComponent from "./customize";
+import ResumeScreenshot from "./capture";
 import "./App.css";
-import contentBlack from "/contentBlack.png"
-import custom from "/custom.png"
-import trash from "/trash.png"
-import display from "/display.png"
+import contentBlack from "/contentBlack.png";
+import custom from "/custom.png";
+import trash from "/trash.png";
+import display from "/display.png";
+import captureIcon from "/capture.png";
 
 function App() {
   const [toggleInput, setToggleInput] = useState(false);
@@ -17,8 +19,8 @@ function App() {
   const [experienceDetailsInfo, setExperienceDetailsInfo] = useState([]);
   const [myFont, setMyFont] = useState("Serif");
   const [myColor, setMyColor] = useState("#dcae96");
-  const [fontColor, setFontColor] = useState('#0A192F')
-  const [contentColor, setContentColor] = useState("#FFFFFF")
+  const [fontColor, setFontColor] = useState("#0A192F");
+  const [contentColor, setContentColor] = useState("#FFFFFF");
 
   function CustomPageRender() {
     if (document.querySelector(".activeSection")) {
@@ -94,31 +96,19 @@ function App() {
               id="customizeSection"
               onClick={CustomPageRender}
             >
-              <img
-                src={custom}
-                alt="Customize"
-                className="navButtonImage"
-              />
+              <img src={custom} alt="Customize" className="navButtonImage" />
               <div id="customizeText">Customize</div>
             </div>
           </div>
           <div id="inputSection">
             <div id="displayInputButtons">
               <div className="displayInputContainer" id="clearResumeContainer">
-                <img
-                  src={trash}
-                  alt=""
-                  className="displayButton"
-                />
+                <img src={trash} alt="" className="displayButton" />
                 <div id="clearResume">Clear Resume</div>
               </div>
-              <div className="displayInputContainer" id="loadResumeContainer">
-                <img
-                  src={display}
-                  alt=""
-                  className="displayButton"
-                />
-                <div id="loadResume">Load Resume</div>
+              <div className="displayInputContainer" id="captureResumeContainer" onClick={ResumeScreenshot}>
+                <img src={captureIcon} alt="" className="displayButton" />
+                <div id="captureResume">Capture Resume</div>
               </div>
             </div>
             <ToggleDisplay />

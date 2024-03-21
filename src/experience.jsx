@@ -177,14 +177,13 @@ export default function AppendExperienceComponent({
                 </div>
                 <div id="description">
                   <label htmlFor="experienceDescription">Description: </label>
-                  <input
-                    type="text"
+                  <textarea                     type="textarea"
                     id="experienceDescription"
                     name="experienceDescription"
                     placeholder="Enter Description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                  />
+                    />
                 </div>
               </form>
               <div className="editButton">
