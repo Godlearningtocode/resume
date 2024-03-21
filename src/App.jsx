@@ -9,7 +9,6 @@ import "./App.css";
 import contentBlack from "/contentBlack.png";
 import custom from "/custom.png";
 import trash from "/trash.png";
-import display from "/display.png";
 import captureIcon from "/capture.png";
 
 function App() {
